@@ -25,7 +25,6 @@ class TestBooksCollector:
 
 
     def test_add_new_book_valid_name(self):
-    # Проверка добавления книги с корректным названием
         collector = BooksCollector()
         collector.add_new_book("Война и мир")
         assert "Война и мир" in collector.books_genre
@@ -33,7 +32,6 @@ class TestBooksCollector:
 
 
     def test_set_book_genre_valid(self):
-     # Проверка установки корректного жанра
         collector = BooksCollector()
         collector.add_new_book("Мастер и Маргарита")
         collector.set_book_genre("Мастер и Маргарита", "Фантастика")
@@ -41,7 +39,6 @@ class TestBooksCollector:
 
 
     def test_set_book_genre_invalid_genre(self):
-    # Проверка, что некорректный жанр не устанавливается
         collector = BooksCollector()
         collector.add_new_book("Три мушкетёра")
         collector.set_book_genre("Три мушкетёра", "Роман")
@@ -49,7 +46,6 @@ class TestBooksCollector:
 
 
     def test_get_books_for_children(self):
-    # Проверка получения книг, подходящих детям (без возрастного рейтинга)
         collector = BooksCollector()
         collector.add_new_book("Маленький принц")
         collector.set_book_genre("Маленький принц", "Мультфильмы")
@@ -65,7 +61,6 @@ class TestBooksCollector:
 
 
     def test_add_book_in_favorites(self):
-    # Проверка добавления книги в избранное
         collector = BooksCollector()
         collector.add_new_book("1984")
         collector.add_book_in_favorites("1984")
@@ -73,14 +68,12 @@ class TestBooksCollector:
 
 
     def test_add_book_in_favorites_not_in_books_genre(self):
-    #Проверка, что книга не добавляется в избранное, если её нет в books_genre
         collector = BooksCollector()
         collector.add_book_in_favorites("Неизвестная книга")
         assert "Неизвестная книга" not in collector.favorites
 
 
     def test_add_book_in_favorites_duplicate(self):
-    #Проверка, что дублирование в избранном запрещено
         collector = BooksCollector()
         collector.add_new_book("Преступление и наказание")
         collector.add_book_in_favorites("Преступление и наказание")
@@ -89,7 +82,6 @@ class TestBooksCollector:
 
 
     def test_delete_book_from_favorites(self):
-    #Проверка удаления книги из избранного
         collector = BooksCollector()
         collector.add_new_book("Анна Каренина")
         collector.add_book_in_favorites("Анна Каренина")
@@ -98,7 +90,6 @@ class TestBooksCollector:
 
 
     def test_get_list_of_favorites_books(self):
-    #Проверка получения списка избранных книг
         collector = BooksCollector()
         collector.add_new_book("Братья Карамазовы")
         collector.add_new_book("Дюна")
@@ -111,7 +102,6 @@ class TestBooksCollector:
 
 
     def test_get_books_with_specific_genre(self):
-    #Проверка получения списка книг по жанру
         collector = BooksCollector()
         collector.add_new_book("Сияние")
         collector.set_book_genre("Сияние", "Ужасы")
@@ -128,7 +118,6 @@ class TestBooksCollector:
 
 
     def test_get_books_genre_returns_all_books(self):
-    #Проверка, что get_books_genre возвращает полный словарь
         collector = BooksCollector()
         collector.add_new_book("Остров сокровищ")
         collector.set_book_genre("Остров сокровищ", "Приключения")
