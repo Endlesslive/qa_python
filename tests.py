@@ -64,7 +64,6 @@ class TestBooksCollector:
         collector.delete_book_from_favorites("Анна Каренина")
         assert "Анна Каренина" not in collector.favorites
 
-
     def test_get_list_of_favorites_books(self):
         collector = BooksCollector()
         collector.add_new_book("Братья Карамазовы")
